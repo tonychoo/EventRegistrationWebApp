@@ -10,7 +10,8 @@
 <p>
     <a asp-page="Create">Create New</a>
 </p>
-<table class="table">
+
+<table class="table" id="myTable">
     <thead>
         <tr>
             <th>
@@ -31,30 +32,31 @@
             <th></th>
         </tr>
     </thead>
-    <tbody>
-@foreach (var item in Model.Registration) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Gender)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RegistrationDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AdditionalRequest)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
 </table>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_DataTableScriptsPartial");}
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#myTable').DataTable({
+                ajax: {
+                    url: '/api/Registrations',
+                    dataSrc: ''
+                },
+                processing: false,
+                ordering: false,
+                paging: false,
+                searching: false,
+                columns: [
+                    { data: 'name' },
+                    { data: 'email' },
+                    { data: 'gender' },
+                    { data: 'registrationDate' },
+                    { data: 'additionalRequest' }
+
+
+                ]
+            });
+        });
+    </script>
+
+}

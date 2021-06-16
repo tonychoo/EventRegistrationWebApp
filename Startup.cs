@@ -26,7 +26,7 @@ namespace EventRegistrationWebApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
-
+            services.AddControllers();
             services.AddDbContext<EventRegistrationWebAppContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("EventRegistrationWebAppContext")));
         }
@@ -55,6 +55,7 @@ namespace EventRegistrationWebApp
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
+                endpoints.MapControllers();
             });
         }
     }
