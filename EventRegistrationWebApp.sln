@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31410.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventRegistrationWebApp", "EventRegistrationWebApp.csproj", "{97F6631A-9DD1-4BD6-A2AB-100D01E920A2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventRegistrationWebApp-Api", "..\EventRegistrationWebApp-Api\EventRegistrationWebApp-Api\EventRegistrationWebApp-Api.csproj", "{FCAFC6E9-864D-4FC6-98B2-088DD6B12101}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{97F6631A-9DD1-4BD6-A2AB-100D01E920A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97F6631A-9DD1-4BD6-A2AB-100D01E920A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97F6631A-9DD1-4BD6-A2AB-100D01E920A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97F6631A-9DD1-4BD6-A2AB-100D01E920A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCAFC6E9-864D-4FC6-98B2-088DD6B12101}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCAFC6E9-864D-4FC6-98B2-088DD6B12101}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCAFC6E9-864D-4FC6-98B2-088DD6B12101}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCAFC6E9-864D-4FC6-98B2-088DD6B12101}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {987066C5-9705-4B50-8923-DE94C2FB1653}
+	EndGlobalSection
+EndGlobal
