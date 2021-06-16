@@ -10,40 +10,86 @@
 <h4>Registration</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-12">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Registration.Name" class="control-label"></label>
-                <input asp-for="Registration.Name" class="form-control" />
-                <span asp-validation-for="Registration.Name" class="text-danger"></span>
+            <div class="form-group row">
+                <label asp-for="Registration.Name" class="control-label col-sm-2"></label>
+                <input asp-for="Registration.Name" class="form-control col-sm-10" />
+                <span class="col-sm-2"></span>
+                <span asp-validation-for="Registration.Name" class="text-danger col-sm-10"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Registration.Email" class="control-label"></label>
-                <input asp-for="Registration.Email" class="form-control" />
-                <span asp-validation-for="Registration.Email" class="text-danger"></span>
+            <div class="form-group row">
+                <label asp-for="Registration.Email" class="control-label col-sm-2"></label>
+                <input asp-for="Registration.Email" class="form-control col-sm-10" />
+                <span class="col-sm-2"></span>
+                <span asp-validation-for="Registration.Email" class="text-danger col-sm-10"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Registration.RegistrationDate" class="control-label"></label>
-                <input asp-for="Registration.RegistrationDate" class="form-control" />
-                <span asp-validation-for="Registration.RegistrationDate" class="text-danger"></span>
+            <fieldset class="form-group">
+                <div class="row">
+                    <legend class="col-form-label col-sm-2 pt-0"><label asp-for="Registration.Name" class="control-label"></label></legend>
+                    <div class="col-sm-10">
+                        <div class="form-check">
+                            <input asp-for="Registration.Gender" class="form-check-input" type="radio" value="M">
+                            <label class="form-check-label">
+                                Male
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input asp-for="Registration.Gender" class="form-check-input" type="radio" value="F">
+                            <label class="form-check-label">
+                                Female
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            <div class="form-group row">
+                <label asp-for="Registration.RegistrationDate" class="control-label col-sm-2"></label>
+                <input asp-for="Registration.RegistrationDate" class="form-control CustomDateValidation col-sm-10" />
+                <span class="col-sm-2"></span>
+                <span asp-validation-for="Registration.RegistrationDate" class="text-danger col-sm-10"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Registration.AdditionalRequest" class="control-label"></label>
-                <input asp-for="Registration.AdditionalRequest" class="form-control" />
-                <span asp-validation-for="Registration.AdditionalRequest" class="text-danger"></span>
+            <div class="form-group row">
+                <label asp-for="Registration.AdditionalRequest" class="control-label col-sm-2"></label>
+                <input asp-for="Registration.AdditionalRequest" class="form-control col-sm-10" />
+                <span class="col-sm-2"></span>
+                <span asp-validation-for="Registration.AdditionalRequest" class="text-danger col-sm-10"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+            <div class="form-group row">
+                <span class="col-sm-10"></span>
+                <input type="submit" value="Create" class="btn btn-primary col-sm-2" /><br />
+                <span class="col-sm-10"></span>
+                <a asp-page="Index" class="col-sm-2">Back to List</a>
+
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-page="Index">Back to List</a>
+    
 </div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script>
+    $.validator.methods.range = function (value, element, param) {
+
+        if ($(element).hasClass('CustomDateValidation')) {
+            var min = $(element).attr('data-val-range-min');
+            var max = $(element).attr('data-val-range-max');
+            var date = new Date(value).getTime();
+            var minDate = new Date(min).getTime();
+            var maxDate = new Date(max).getTime();
+            console.log(minDate + " | " + maxDate + " | " + date);
+
+            return this.optional(element) || (date >= minDate && date <= maxDate);
+        }
+        // use the default method
+        return this.optional(element) || (value >= param[0] && value <= param[1]);
+    }
+    </script>
+
 }
