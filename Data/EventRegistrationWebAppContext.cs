@@ -4,7 +4,7 @@ namespace EventRegistrationWebApp.Data
 {
     public class EventRegistrationWebAppContext : DbContext
     {
-        public EventRegistrationWebAppContext (DbContextOptions<EventRegistrationWebAppContext> options)
+        public EventRegistrationWebAppContext(DbContextOptions<EventRegistrationWebAppContext> options)
             : base(options)
         {
         }

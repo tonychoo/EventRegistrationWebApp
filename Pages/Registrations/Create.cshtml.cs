@@ -3,9 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using System.Text.Json;
-using System.Text.Json.Serialization;
+using System.Threading.Tasks;
 
 namespace EventRegistrationWebApp.Pages.Registrations
 {
@@ -47,10 +46,10 @@ namespace EventRegistrationWebApp.Pages.Registrations
             {
                 return Page();
             }
-            
+
             for (int i = 0; i < EventDays.Count; i++)
             {
-                if (EventDays[i].Selected== true)
+                if (EventDays[i].Selected == true)
                 {
                     SelectedEventDays.Add(EventDays[i].Text);
                 }

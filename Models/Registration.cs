@@ -23,7 +23,7 @@ namespace EventRegistrationWebApp.Models
         [MaxLength(1)]
         [DataType(DataType.Text)]
         public string Gender { get; set; }
-        
+
         [DisplayName("Date Registered")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         [Range(typeof(DateTime), "1/1/2019", "30/6/2019", ErrorMessage = "Allowed date is between {1:dd/MM/yyyy} to {2:dd/MM/yyyy}")]
