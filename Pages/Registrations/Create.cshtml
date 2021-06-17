@@ -58,8 +58,6 @@
                         @for (int i = 0; i < Model.EventDays.Count; i++)
                         {
                         <div class="form-check">
-                            @*<input type="checkbox" id="@Model.EventDays[i].Value" name="EventDays" value="@Model.EventDays[i].Value" class="form-check-input customCheckboxValidation" />
-                            <label class="form-check-label" for="@Model.EventDays[i].Value">@Model.EventDays[i].Text</label>*@
                             <input asp-for="@Model.EventDays[i].Selected" type="checkbox" class="form-check-input customCheckboxValidation" />
                             <label asp-for="@Model.EventDays[i].Selected"  class="form-check-label">@Model.EventDays[i].Text</label>
 

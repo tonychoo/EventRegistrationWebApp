@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace EventRegistrationWebApp.Controllers
@@ -23,12 +24,15 @@ namespace EventRegistrationWebApp.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Registration>>> GetRegistration()
         {
-            return await _context.Registration.ToListAsync();
-        }
+            var reg = await _context.Registration.ToListAsync();
 
-        private bool RegistrationExists(int id)
-        {
-            return _context.Registration.Any(e => e.ID == id);
+            foreach (var r in reg)
+            {
+                r.EventDays = string.Join(", ", JsonSerializer.Deserialize<IList<string>>(r.EventDays));
+
+            }
+
+            return reg;
         }
     }
 }

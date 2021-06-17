@@ -26,7 +26,7 @@ namespace EventRegistrationWebApp.Models
                         Name = "Susan Lee",
                         Email = "susanlee123@host.com",
                         Gender = "F",
-                        RegistrationDate = DateTime.Parse("2019-3-12"),
+                        RegistrationDate = DateTime.Parse("2019-3-22"),
                         EventDays = @"[""Day 1"", ""Day 2""]",
                         AdditionalRequest = "I want to be seated at the 1st row if possible."
                     },
@@ -46,7 +46,7 @@ namespace EventRegistrationWebApp.Models
                         Name = "Mona Loot",
                         Email = "mloot3221@asknlearn.com",
                         Gender = "F",
-                        RegistrationDate = DateTime.Parse("2019-5-12"),
+                        RegistrationDate = DateTime.Parse("2019-5-10"),
                         EventDays = @"[""Day 1"", ""Day 2""]",
                         AdditionalRequest = ""
                     },
@@ -56,7 +56,7 @@ namespace EventRegistrationWebApp.Models
                         Name = "Sonny Day",
                         Email = "sonnnny@liva.com",
                         Gender = "M",
-                        RegistrationDate = DateTime.Parse("2019-3-12"),
+                        RegistrationDate = DateTime.Parse("2019-3-1"),
                         EventDays = @"[""Day 1""]",
                         AdditionalRequest = "Seat behind Susan Lee is fine."
                     }
