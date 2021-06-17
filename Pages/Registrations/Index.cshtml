@@ -27,6 +27,9 @@
                 @Html.DisplayNameFor(model => model.Registration[0].RegistrationDate)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.Registration[0].EventDays)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Registration[0].AdditionalRequest)
             </th>
             <th></th>
@@ -51,9 +54,8 @@
                     { data: 'email' },
                     { data: 'gender' },
                     { data: 'registrationDate' },
+                    { data: 'eventDays'},
                     { data: 'additionalRequest' }
-
-
                 ]
             });
         });

@@ -26,13 +26,12 @@ namespace EventRegistrationWebApp.Models
         
         [DisplayName("Date Registered")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
-        [Range(typeof(DateTime), "1/1/2019", "30/6/2019", ErrorMessage = "Allowed date is between {1} to {2}")]
+        [Range(typeof(DateTime), "1/1/2019", "30/6/2019", ErrorMessage = "Allowed date is between {1:dd/MM/yyyy} to {2:dd/MM/yyyy}")]
         [DataType(DataType.Date)]
         public DateTime RegistrationDate { get; set; }
 
         [DisplayName("Selected Days")]
-        [NotMapped]
-        public string[] EventDays { get; set; }
+        public string EventDays { get; set; }
 
         [DisplayName("Additional Request")]
         [MaxLength(100)]
