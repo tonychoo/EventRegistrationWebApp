@@ -12,8 +12,14 @@ Simple Event Registration Web App (C#, ASP.NET 5.0, Razor, Entity Framework ORM)
 dotnet build
 ```
 
-1. Run the webapp project sample:
+2. Run the webapp project sample:
 
 ```
 dotnet run
 ```
+3. Open the browser and paste the following URL to run the webapp project:
+
+```
+https://localhost:5001/
+```
+
