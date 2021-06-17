@@ -1,3 +1,4 @@
+using EventRegistrationWebApp.Data;
 using EventRegistrationWebApp.Models;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -17,6 +18,8 @@ namespace EventRegistrationWebApp
         {
             var host = CreateHostBuilder(args).Build();
 
+            CreateDbIfNotExists(host);
+
             using (var scope = host.Services.CreateScope())
             {
                 var services = scope.ServiceProvider;
@@ -34,6 +37,26 @@ namespace EventRegistrationWebApp
 
             host.Run();
 
+        }
+        private static void CreateDbIfNotExists(IHost host)
+        {
+            using (var scope = host.Services.CreateScope())
+            {
+                var services = scope.ServiceProvider;
+                try
+                {
+                    var context = services.GetRequiredService<EventRegistrationWebAppContext>();
+                    context.Database.EnsureCreated();
+
+                    Seeddatabase.Initialize(services);
+
+                }
+                catch (Exception ex)
+                {
+                    var logger = services.GetRequiredService<ILogger<Program>>();
+                    logger.LogError(ex, "An error occurred creating the DB.");
+                }
+            }
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
